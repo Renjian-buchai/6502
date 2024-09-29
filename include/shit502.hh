@@ -43,6 +43,8 @@ class shit502 {
   uint16_t readPC() const;
   const std::array<bool, 8>& readP() const;
 
+  uint8_t clock();
+
  private:
   uint8_t A;
   uint8_t X;
