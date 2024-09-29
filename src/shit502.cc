@@ -32,5 +32,3 @@ uint16_t shit502::readIR() const { return IR; }
 uint16_t shit502::readPC() const { return PC; }
 
 const std::array<bool, 8>& shit502::readP() const { return P; }
-
-uint8_t shit502::clock() { return dv; }
