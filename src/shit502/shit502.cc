@@ -1,4 +1,4 @@
-#include "../include/shit502.hh"
+#include "../../include/shit502.hh"
 
 shit502::shit502() = default;
 

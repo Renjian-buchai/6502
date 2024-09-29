@@ -10,8 +10,8 @@ set(CMAKE_CXX_COMPILER_WORKS 1)
 
 project(shit502)
 
-file(GLOB SOURCES ${PROJECT_SOURCE_DIR}/src/*.cc)
+file(GLOB SOURCES ${PROJECT_SOURCE_DIR}/src/shit502.cc)
 
-add_executable(${PROJECT_NAME} ${SOURCES})
+add_library(${PROJECT_NAME} ${SOURCES})
 
 target_include_directories(${PROJECT_NAME} PRIVATE "${PROJECT_SOURCE_DIR}/include/")
