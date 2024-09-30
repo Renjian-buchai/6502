@@ -4,6 +4,7 @@
 #include <array>
 #include <cstdint>
 
+/// @brief Assumes 5V
 class shit502 {
  public:
   uint16_t addressBus = 0;
@@ -23,17 +24,22 @@ class shit502 {
 
   bool SYNC = 0;
 
-  uint8_t VDD = 0;
-  uint8_t VSS = 0;
+  double VDD = 0;
+  double VSS = 0;
 
   bool VPB = 1;
 
   enum class flags : uint8_t { N, V, US_M, B, D, I, Z, C };
 
+  enum class errStatus : uint8_t {
+    NONE,
+    FRIED,
+  };
+
  public:
   shit502();
 
-  shit502(uint8_t VDD, uint8_t VSS = 0);
+  shit502(double VDD, double VSS = 0);
 
   uint8_t readA() const;
   uint8_t readX() const;
@@ -43,7 +49,7 @@ class shit502 {
   uint16_t readPC() const;
   const std::array<bool, 8>& readP() const;
 
-  uint8_t clock();
+  errStatus clock();
 
  private:
   uint8_t A;
@@ -53,8 +59,6 @@ class shit502 {
   std::array<bool, 8> P;
   uint16_t IR;
   uint16_t PC;
-
-  uint8_t dv = 0;
 };
 
 #endif
